@@ -1,4 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿// using statements
+// imports classes and functionality from other documents
+using Object_Orriented_Programing;
+
+
 Console.WriteLine("Hello, World!");
 
 //OOP
@@ -12,6 +16,32 @@ Console.WriteLine("Hello, World!");
 //difference between methods and properties: both use dot operator, but properties use a parentheses after the method name. Methods do not use parentheses.
 // property: ex. names.Count;
 // method: ex. names.MyMethod();
+
+// Main Method
+int num = 15;
+num++;
+Console.WriteLine(num);
+
+// this is where we provide specific food
+//instance of the food class
+// instatiation -. we create food object
+// instance is an example of a food object
+
+Food garfield = new Food();
+Console.WriteLine(garfield.Name);
+Console.WriteLine("What are you eating?");
+string input = Console.ReadLine();
+Food davis = new Food(input, "salty", "soft", true, 2, 7, 200, new List<string>{"rice", "seaweed", "fish"});
+Console.WriteLine(davis.Portions);
+// default way
+davis.Eat();
+// overloading way
+davis.Eat(2);
+Console.WriteLine(davis.Portions);
+//static method
+Console.WriteLine(Food.DisplayMessage());
+// returning a private bool type
+Console.WriteLine(davis.IsFoodTasty());
 
 
 //Classes
