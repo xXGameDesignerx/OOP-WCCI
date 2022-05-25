@@ -47,7 +47,3 @@ Console.WriteLine(davis.IsFoodTasty());
 //Classes
 //object types.
 //Classes outline what properties and methods a particular object will have at its fingertips.
-
-
-//Classes vs. objects
-
