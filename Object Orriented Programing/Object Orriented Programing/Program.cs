@@ -83,33 +83,8 @@ string str = "string";
 // string -> 's' 't' 'r' 'i' 'n' 'g'
 char c = str[3];
 
-
-// OOP 4 pillars - APIE
-// enhance what we can do with objects
-// key features that c# and its classes implement
-
-// Abstraction
-// boiling a class/object down to its key features
-// creating a generalized class over a specific one
-// oreder is parent > children > instances
-// take what is silmilar from both for a parent class
-// ex: food is a parent class of lasagna/spaghetti
-
-
-// Polymorphism
-
-
-// Inheritence
-
-
-// Encapsulation
-// objects are more than the sum of its parts
-// hiding irrelevent info from our programs
-// classes wrap up variables 
-//                         - variable/them - properies
-// access modifiers hide them
-// grouping variables together into one object
-
+// Encapsulation in a sense that loz replaces the need for
+// 3+ individual variables
 //game class
 //option 1
 /*
@@ -125,6 +100,119 @@ loz.Play();
 // movie class
 Movie sw = new Movie();
 sw.Play();
+
 sw.Title = "Star Wars";
 loz.ChangeTitle(sw.Title);
 sw.ChangeTitle("Star Wars: The Darkness");
+
+// Polymorphism
+// *many forms* 
+
+Media med = new Media();
+med = new Game(); // a game is transforming in a more genaric 'media' object
+med.Title = "Wow!";
+Console.WriteLine(med.GetType());
+
+//Game game = new Media(); children cannot neccessarily hold parents
+
+
+// OOP 4 pillars - APIE
+// enhance what we can do with objects
+// key features that c# and its classes implement
+
+// Abstraction
+// boiling a class/object down to its key features
+// creating a generalized class over a specific one
+// oreder is parent > children > instances
+// take what is silmilar from both for a parent class
+// ex: food is a parent class of lasagna/spaghetti
+
+// Polymorphism
+// idea child can act like parents
+// we can treat a game like media
+// ex: List<media> - this can contains games and movies
+// ex: media obj = new game();
+
+
+// Inheritence
+// this uses : <- colon
+// creating a child class from a parent class
+// get access to a parent class's prperties and methods
+// .... class : parent class
+// child class can do everything the parent class can,
+// but the parent class can not do what child class can.
+// ex: media > both game and movie
+// example:
+// internal class Movie : Media
+// {
+//    // code goes in here
+// }
+
+// Encapsulation
+// objects are more than the sum of its parts
+// hiding irrelevent info from our programs
+// classes wrap up variables 
+//                         - variable/them - properies
+// access modifiers hide them
+// grouping variables together into one object
+
+
+// console app that acts like a media collection
+List<Media> collection = new List<Media>(); // list of all media objects
+
+// if we want the user to look at the collection multiple times
+// using while loop
+bool isRunning = true;
+while(isRunning)
+{
+    Console.Clear();
+    Console.WriteLine("What type of media would you like to add to the collection?");
+    Console.WriteLine("1 - Game \n2 - Movie");
+    Console.WriteLine("3 - Display Media");
+    int selection = Int32.Parse(Console.ReadLine());
+    switch (selection)
+    {
+        case 1:
+            Game exampleGame = new Game();
+            Console.WriteLine("what is the name of your game?");
+            string gameTitle = Console.ReadLine();
+            exampleGame.ChangeTitle(gameTitle);
+            exampleGame.Play();
+            collection.Add(exampleGame);
+            break;
+        case 2:
+            Console.Clear();
+            Movie exampleMovie = new Movie();
+            Console.WriteLine("What is the name of your movie?");
+            string movieTitle = Console.ReadLine(); 
+            exampleMovie.ChangeTitle(movieTitle);
+            collection.Add(exampleMovie);
+            break;
+        case 3:
+            Console.Clear();
+            Console.WriteLine(collection.Count);
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadLine();
+            foreach (Media media in collection)
+            {
+                if(media.GetType() == typeof(Game))
+                {
+                    Game gameFromShelf = (Game)media; // type casing
+                    Console.WriteLine("Title: " + gameFromShelf.Title + 
+                        " - Hours Played: " + gameFromShelf.TimePlayed + " - Game");
+                }
+                else if(media.GetType() == typeof(Movie))
+                {
+                    Console.WriteLine("Title: " + media.Title + "- Movie");
+                }
+                else
+                {
+                    Console.WriteLine();
+                }
+
+            }
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadLine();
+            break;
+    }
+}
