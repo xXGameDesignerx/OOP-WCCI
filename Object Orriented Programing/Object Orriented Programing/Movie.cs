@@ -20,7 +20,7 @@ namespace Object_Orriented_Programing
         }
     }
     //abstract class
-    internal abstract class Movie : Media
+    internal abstract class Movie_ : Media_
     {
         public List<string> Cast;
         public List<string> Crew;
@@ -28,7 +28,7 @@ namespace Object_Orriented_Programing
         public bool AwardWinning;
         public bool InTheatres;
 
-        public override void Play()
+        public void Play()
         {
             Console.WriteLine("Wow, I wish Tom Cruise was in this!");
         }

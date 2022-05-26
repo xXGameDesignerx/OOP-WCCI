@@ -47,13 +47,13 @@ namespace Object_Orriented_Programing
         public int MaxLevel;
         public List<string> Inventory;
 
-        public abstract void Play()
+        public void Play()
         {
             Console.WriteLine("How many hours did you play?");
             int hours = Int32.Parse(Console.ReadLine());
             TimePlayed += hours;
         }
-        public abstract void Play(int hours)
+        public void Play(int hours)
         {
             TimePlayed += hours;
         }
