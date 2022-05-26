@@ -84,27 +84,6 @@ string str = "string";
 char c = str[3];
 
 
-//game class
-//option 1
-/*
-Game loz = new Game();
-Console.WriteLine("How many hours did you play?");
-int hours = Int32.Parse(Console.ReadLine());
-loz.Play(hours);
-*/
-//option 2
-Game loz = new Game();
-loz.Play();
-
-// movie class
-Movie sw = new Movie();
-sw.Play();
-sw.Title = "Star Wars";
-loz.ChangeTitle(sw.Title);
-sw.ChangeTitle("Star Wars: The Darkness");
-
-
-
 // OOP 4 pillars - APIE
 // enhance what we can do with objects
 // key features that c# and its classes implement
@@ -146,3 +125,6 @@ loz.Play();
 // movie class
 Movie sw = new Movie();
 sw.Play();
+sw.Title = "Star Wars";
+loz.ChangeTitle(sw.Title);
+sw.ChangeTitle("Star Wars: The Darkness");
