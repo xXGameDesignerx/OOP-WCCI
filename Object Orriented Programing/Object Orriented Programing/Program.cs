@@ -156,7 +156,7 @@ Console.WriteLine(med.GetType());
 // access modifiers hide them
 // grouping variables together into one object
 
-
+// Inferface
 // console app that acts like a media collection
 List<Media> collection = new List<Media>(); // list of all media objects
 
