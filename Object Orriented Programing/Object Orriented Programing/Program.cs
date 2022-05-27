@@ -168,7 +168,7 @@ while(isRunning)
     Console.Clear();
     Console.WriteLine("What type of media would you like to add to the collection?");
     Console.WriteLine("1 - Game \n2 - Movie");
-    Console.WriteLine("3 - Display Media");
+    Console.WriteLine("3 - Display Media \n4 - Clasify Media \n5 - End Program");
     int selection = Int32.Parse(Console.ReadLine());
     switch (selection)
     {
@@ -214,5 +214,33 @@ while(isRunning)
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
             break;
+        // enum example
+        case 4:
+            Console.WriteLine("What movie would you like to classify?");
+            int inputM = Int32.Parse(Console.ReadLine());
+            Media FromCollection = collection[inputM];
+            Console.WriteLine("What genre is this piece of media?");
+            Console.WriteLine();
+            inputM = Int32.Parse(Console.ReadLine());
+            FromCollection.ClassifyMedia(inputM);
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadLine();
+            break;
+        case 5:
+            isRunning = false;
+            break;
     }
 }
+
+// dictionary syntax and examples
+// type name = value;
+// <key, value> types
+// any type of key we used can be used in a dictionary
+Dictionary<Movie, string> movieDirectors = new Dictionary<Movie, string>();
+//variable declaration, assignemnet, property assignment 
+Movie DrStrange = new Movie();
+DrStrange.Title = "Dr Strange and the Multiverse of Madness";
+
+movieDirectors.Add(DrStrange, "Sam Raimi"); // key-value-pair
+Console.WriteLine(movieDirectors[DrStrange]); // acessing a value for a given key
+movieDirectors[DrStrange] = "Ted Rimi"; // update the value of our KVP(key-value-pair)

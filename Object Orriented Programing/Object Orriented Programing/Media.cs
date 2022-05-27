@@ -9,7 +9,7 @@ namespace Object_Orriented_Programing
     internal class Media : IRatable
     {
         public string Title;
-        public List<string> Genres;
+        public List<Genre> Genres;
         public double Cost;
         public double Rating;
 
@@ -28,6 +28,10 @@ namespace Object_Orriented_Programing
         public void DecreaseRating(double change)
         {
             Rating -= change;
+        }
+        public void ClassifyMedia(int genre)
+        {
+            Genres.Add((Genre)genre);
         }
     }
     // absstract class example using media
@@ -71,5 +75,14 @@ namespace Object_Orriented_Programing
             Rating -= change;
         }
     }
-    
+    // enum example
+    public enum Genre
+    {
+        Horror, 
+        Comedy,
+        Romance,
+        RomCom,
+        Fantasy,
+        Adventure
+    }
 }
